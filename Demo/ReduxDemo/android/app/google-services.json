@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1098859522847",
+    "firebase_url": "https://pushnotificationtest-a02c7.firebaseio.com",
+    "project_id": "pushnotificationtest-a02c7",
+    "storage_bucket": "pushnotificationtest-a02c7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1098859522847:android:7b8ffa9acaff8321f59e2a",
+        "android_client_info": {
+          "package_name": "com.reduxdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1098859522847-u1fge0jcu4lo9klg96dt6pe0pbk0unvd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaMTNPCb7dHnml3XG16TWobTJZat-uTjQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1098859522847-u1fge0jcu4lo9klg96dt6pe0pbk0unvd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1098859522847-fhm9heaa376rqnu0needmh3oqpneatjf.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "org.reactjs.native.example.PushNotification"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
