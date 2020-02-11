@@ -1,5 +1,6 @@
 import { createSwitchNavigator, createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import React, {Component} from 'react';
 
 import CollectorScreen from './src/screens/collector/collectorScreen';
 import HomeOwnerScreen from './src/screens/HomeownerScreen';
