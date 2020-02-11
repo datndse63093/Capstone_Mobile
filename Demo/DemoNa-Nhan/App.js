@@ -8,8 +8,6 @@ import SignInScreen from './src/screens/SignInScreen';
 import AuthLoadingScreen from './src/screens/AuthLoadingScreen';
 import HomeScreen from './src/screens/HomeScreen';
 
-//test n
-
 const AppStack = createStackNavigator({
     Home: HomeScreen,
     Collector: CollectorScreen,
@@ -18,6 +16,8 @@ const AppStack = createStackNavigator({
 const AuthStack = createStackNavigator({
     SignIn: SignInScreen
 });
+
+// Nguyen Hoang Nhan
 
 export default createAppContainer(createSwitchNavigator(
     {
