@@ -17,7 +17,7 @@ const AuthStack = createStackNavigator({
     SignIn: SignInScreen
 });
 
-//Nguyen Hoang Anh Trung
+//Nguyen Hoang Nhan
 
 export default createAppContainer(createSwitchNavigator(
     {
