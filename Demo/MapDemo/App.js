@@ -12,7 +12,6 @@ export default class App extends React.Component {
       initialPosition: null,
     };
   }
-
   componentDidMount() {
     this.requestLocationPermissions();
   }
