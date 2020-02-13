@@ -12,7 +12,7 @@ import {put, takeLatest} from 'redux-saga/effects';
 import {Api} from './Api';
 
 function* fetchMovies() {
-  console.log('start fetch movie');
+  console.log('start fetch movies');
   try {
     const receivedMovies = yield Api.getMoviesFromApi();
     yield put({type: FETCH_SUCCEEDED, receivedMovies: receivedMovies});
@@ -27,17 +27,19 @@ function* addNewMovie(action) {
   try {
     const result = yield Api.insertNewMovieFromApi(action.newMovie);
     if (result === true) {
-      yield put({type: FETCH_MOVIE});
+      yield put({type: FETCH_MOVIE, sort: 'asc'});
     }
   } catch (error) {
-    yield put({type: FETCH_FAILED, error});
+    console.log(error);
   }
 }
 
 export function* watchFetchMovies() {
+  console.log('watch fetch saga');
   yield takeLatest(FETCH_MOVIE, fetchMovies);
 }
 
 export function* watchAddMovie() {
+  console.log('watch add saga');
   yield takeLatest(ADD_MOVIE, addNewMovie);
 }

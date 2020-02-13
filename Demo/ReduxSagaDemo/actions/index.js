@@ -23,9 +23,10 @@ export const decreaseAction = step => {
 };
 
 //action sent by user
-export const fetchMovieAction = () => {
+export const fetchMovieAction = sort => {
   return {
     type: FETCH_MOVIE,
+    sort,
   };
 };
 

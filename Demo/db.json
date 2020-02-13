@@ -46,6 +46,16 @@
       "name": "123456",
       "releaseYear": 1994,
       "id": 6
+    },
+    {
+      "name": "duy dat",
+      "releaseYear": "1998",
+      "id": 7
+    },
+    {
+      "name": "dat",
+      "releaseYear": "2010",
+      "id": 8
     }
   ]
 }
