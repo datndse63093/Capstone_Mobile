@@ -1,15 +1,7 @@
 import React, {Component} from 'react';
 import Button from 'react-native-button';
 
-import {
-  Text,
-  View,
-  Image,
-  Alert,
-  Platform,
-  TextInput,
-  FlatList,
-} from 'react-native';
+import {Text, View, Platform, TextInput, FlatList} from 'react-native';
 
 export default class MovieComponent extends Component {
   constructor(props) {
@@ -56,6 +48,7 @@ export default class MovieComponent extends Component {
             onChangeText={text => this.setState({releaseYear: text})}
             value={this.state.releaseYear}
             placeholder="Release year"
+            keyboardType="numeric"
           />
         </View>
         <View style={{height: 70, flexDirection: 'row'}}>
@@ -70,6 +63,7 @@ export default class MovieComponent extends Component {
             }}
             style={{fontSize: 18, color: 'white'}}
             onPress={() => {
+              console.log('click to fetch movie');
               this.props.onFetchMovies();
             }}>
             Fetch movies
@@ -84,7 +78,18 @@ export default class MovieComponent extends Component {
               backgroundColor: 'darkviolet',
             }}
             style={{fontSize: 18, color: 'white'}}
-            onPress={() => {}}>
+            onPress={() => {
+              const {movieName, releaseYear} = this.state;
+              if (!movieName.length || !releaseYear.length) {
+                alert('You must enter movie name and release year!');
+                return;
+              }
+              console.log('Click to add new movie');
+              this.props.onAddMovie({
+                name: movieName,
+                releaseYear: releaseYear,
+              });
+            }}>
             Add Movie
           </Button>
         </View>
@@ -101,7 +106,7 @@ export default class MovieComponent extends Component {
                 backgroundColor:
                   index % 2 === 0 ? 'dodgerblue' : 'mediumseagreen',
               }}>
-              {`${item.name},releaseYear=${item.releaseYear}`}
+              {`${item.name}, releaseYear= ${item.releaseYear}`}
             </Text>
           )}
         />

@@ -1,18 +1,15 @@
 import {connect} from 'react-redux';
 import MovieComponent from '../components/MovieComponent';
-import {
-  addMovieAction,
-  fetchMovieAction,
-  fetchFailedAction,
-  fetchSuccessAction,
-} from '../actions/index';
+import {addMovieAction, fetchMovieAction} from '../actions/index';
 const mapStateToProps = state => {
+  console.log('mapStateToProps');
   return {
     movies: state.movieReducers,
   };
 };
 
 const mapDispatchToProps = dispatch => {
+  console.log('mapDispatchToProps');
   return {
     onFetchMovies: () => {
       dispatch(fetchMovieAction());
@@ -27,4 +24,5 @@ const MovieContainer = connect(
   mapStateToProps,
   mapDispatchToProps,
 )(MovieComponent);
+
 export default MovieContainer;
