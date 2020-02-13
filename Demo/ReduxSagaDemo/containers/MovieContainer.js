@@ -1,6 +1,12 @@
 import {connect} from 'react-redux';
 import MovieComponent from '../components/MovieComponent';
-import {addMovieAction, fetchMovieAction} from '../actions/index';
+import {
+  addMovieAction,
+  fetchMovieAction,
+  updateItemAction,
+  updateItemSuccessAction,
+  deleteItemAction,
+} from '../actions/index';
 const mapStateToProps = state => {
   console.log('mapStateToProps');
   return {
@@ -17,6 +23,17 @@ const mapDispatchToProps = dispatch => {
     onAddMovie: newMovie => {
       dispatch(addMovieAction(newMovie));
     },
+    onUpdateItemAction: updatedMovie => {
+      dispatch(updateItemAction(updatedMovie));
+    },
+    //delete a movie
+    onDeleteItemAction: deletedMovieId => {
+      dispatch(deleteItemAction(deletedMovieId));
+    },
+    //Not necessary !
+    // onUpdateItemSuccessAction: updatedMovie => {
+    //   dispatch(updateItemSuccessAction(updatedMovie));
+    // },
   };
 };
 

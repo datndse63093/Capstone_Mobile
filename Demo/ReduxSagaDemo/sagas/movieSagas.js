@@ -4,6 +4,10 @@ import {
   FETCH_SUCCEEDED,
   FETCH_FAILED,
   ADD_MOVIE,
+  UPDATE_MOVIE,
+  UPDATE_SUCCEEDED,
+  DELETE_MOVIE,
+  DELETE_SUCCEEDED,
 } from '../actions/actionType';
 //Saga effects
 import {put, takeLatest} from 'redux-saga/effects';
@@ -42,4 +46,41 @@ export function* watchFetchMovies() {
 export function* watchAddMovie() {
   console.log('watch add saga');
   yield takeLatest(ADD_MOVIE, addNewMovie);
+}
+
+function* updateMovie(action) {
+  console.log('start update movie');
+  try {
+    const result = yield Api.updateMovieFromApi(action.updateMovie);
+    if (result === true) {
+      yield put({type: UPDATE_SUCCEEDED, updatedMovie: action.updateMovie});
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export function* watchUpdateMovie() {
+  console.log('watch update saga');
+  yield takeLatest(UPDATE_MOVIE, updateMovie);
+}
+
+function* deleteMovie(action) {
+  console.log('start delete movie');
+  try {
+    const result = yield Api.deleteMovieFromApi(action.deletedMovieId);
+    if (result === true) {
+      yield put({
+        type: DELETE_SUCCEEDED,
+        deletedMovieId: action.deletedMovieId,
+      });
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export function* watchDeleteMovie() {
+  console.log('watch delete saga');
+  yield takeLatest(DELETE_MOVIE, deleteMovie);
 }
